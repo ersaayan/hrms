@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class JobTitleManager implements JobTitleService {
 
@@ -20,5 +22,10 @@ public class JobTitleManager implements JobTitleService {
     @Override
     public List<JobTitle> getAll() {
         return this.jobTitleDao.findAll();
+    }
+
+    @Override
+    public JobTitle getById(int id) {
+       return this.jobTitleDao.findById(id).get();
     }
 }

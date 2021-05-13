@@ -6,26 +6,19 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="users")
 public class User {
     @Id
-    @GeneratedValue
-    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id", updatable = false, nullable = false)
     private int id;
-    @Column(name="email")
+
+    @Column(name="email_address")
     private String email;
+
     @Column(name="password")
     private String password;
-
-    public User(int id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(){
-
-    }
 
 
 

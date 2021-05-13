@@ -1,4 +1,4 @@
-package kodlamaio.hrms.core.controllers;
+package kodlamaio.hrms.api.controllers;
 
 import kodlamaio.hrms.business.abstracts.JobTitleService;
 import kodlamaio.hrms.entities.concretes.JobTitle;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/jobtitle")
+@RequestMapping(path = "/api/jobtitle")
 public class JobTitleControllers {
     private JobTitleService jobTitleService;
 
@@ -17,8 +17,13 @@ public class JobTitleControllers {
         this.jobTitleService = jobTitleService;
     }
 
-    @GetMapping("/getall")
+    @GetMapping(path = "/getall")
     public List<JobTitle> getAll(){
         return this.jobTitleService.getAll();
+    }
+
+    @GetMapping(path = "/getbyid")
+    public JobTitle getById(int id){
+        return this.jobTitleService.getById(id);
     }
 }
