@@ -28,4 +28,9 @@ public class CandidateManager implements CandidateService {
         return this.candidateDao.findById(id).get();
     }
 
+    @Override
+    public void add(Candidate candidate) {
+        this.candidateDao.save(candidate);
+    }
+
 }

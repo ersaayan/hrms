@@ -27,4 +27,17 @@ public class Candidate extends User{
     @Column(name="birth_date")
     private Date birt_date;
 
+    public Candidate(){
+
+    }
+
+    public Candidate(String email, String password, String first_name, String last_name, String identity_number, Date birt_date){
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setFirst_name(first_name);
+        this.setLast_name(last_name);
+        this.setIdentity_number(identity_number);
+        this.setBirt_date(birt_date);
+    }
 }
+

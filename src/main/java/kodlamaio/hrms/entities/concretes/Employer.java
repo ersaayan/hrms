@@ -1,12 +1,12 @@
 package kodlamaio.hrms.entities.concretes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
@@ -18,7 +18,9 @@ public class Employer extends User{
     private String company_name;
     @Column(name = "web_address")
     private String web_address;
-    @Column(name = "phone_number")
-    private String phone_number;
+
+    @OneToMany(mappedBy = "employer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("employer")
+    private List<EmployerPhone> phones;
 
 }

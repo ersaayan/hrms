@@ -7,4 +7,5 @@ import java.util.List;
 public interface CandidateService {
     List<Candidate> getAll();
     Candidate getById(int id);
+    void add(Candidate candidate);
 }

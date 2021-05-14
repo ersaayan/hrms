@@ -20,7 +20,12 @@ public class User {
     @Column(name="password")
     private String password;
 
+    public User(){
+    }
 
-
+    public User(String email, String password){
+        this.setEmail(email);
+        this.setPassword(password);
+    }
 
 }

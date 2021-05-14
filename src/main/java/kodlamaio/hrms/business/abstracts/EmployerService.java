@@ -7,4 +7,5 @@ import java.util.List;
 public interface EmployerService {
     List<Employer> getAll();
     Employer getById(int id);
+    Employer getByPhoneNumber(String phoneNumber);
 }

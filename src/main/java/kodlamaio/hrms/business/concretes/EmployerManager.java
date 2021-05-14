@@ -27,4 +27,9 @@ public class EmployerManager implements EmployerService {
     public Employer getById(int id) {
         return this.employerDao.findById(id).get();
     }
+
+    @Override
+    public Employer getByPhoneNumber(String phoneNumber) {
+        return this.employerDao.findEmployerByPhonesPhoneNumber(phoneNumber).orElse(null);
+    }
 }
